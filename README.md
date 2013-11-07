@@ -1,5 +1,15 @@
 # OmniAuth Tradier
 
+[![Gem Version](https://badge.fury.io/rb/omniauth-tradier.png)][gem]
+[![Build Status](https://secure.travis-ci.org/tradier/omniauth-tradier.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/tradier/omniauth-tradier.png)][gemnasium]
+[![Coverage Status](https://coveralls.io/repos/tradier/omniauth-tradier/badge.png?branch=master)][coveralls]
+
+[gem]: https://rubygems.org/gems/omniauth-tradier
+[travis]: http://travis-ci.org/tradier/omniauth-tradier
+[gemnasium]: https://gemnasium.com/tradier/omniauth-tradier
+[coveralls]: https://coveralls.io/r/tradier/omniauth-tradier
+
 This is the official OmniAuth strategy for authenticating with Tradier's API. To
 use it, you'll need a Client ID and Secret which can be obtained from [developer.tradier.com](https://developer.tradier.com/).
 
@@ -43,4 +53,4 @@ For more information on available scopes, refer to Tradier's [API documentation]
 
 ## Copyright
 
-Copyright (c) 2013 Tradier Inc. See [LICENSE](LICENSE.md) for detail.
+Copyright (c) 2013 Tradier Inc. See [LICENSE](LICENSE.md) for details.
