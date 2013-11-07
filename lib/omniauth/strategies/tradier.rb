@@ -14,10 +14,8 @@ module OmniAuth
 
       def authorize_params
         super.tap do |params|
-          %w[scope].each do |v|
-            if request.params[v]
-              params[v.to_sym] = request.params[v]
-            end
+          [:scope].each do |v|
+            params[v] = request.params[v] if request.params[v]
           end
 
           params[:scope] ||= DEFAULT_SCOPE

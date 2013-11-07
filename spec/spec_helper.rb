@@ -1,14 +1,17 @@
 # coding: utf-8
-unless ENV['CI']
-  require 'simplecov'
-  SimpleCov.start do
-    add_group 'GemTemplate', 'lib/gem_template'
-    add_group 'Specs', 'spec'
-  end
-end
 
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start do
+  add_group 'OmniAuth::Tradier', 'lib/omniauth'
+  add_group 'Specs', 'spec'
+  add_filter '.bundle'
+end
 
 require 'omniauth-tradier'
 
