@@ -99,4 +99,47 @@ describe OmniAuth::Strategies::Tradier do
     end
   end
 
+  describe '#uid' do
+    let(:parsed_response) do
+      {'profile' => {'id' => 'foobar'} }
+    end
+
+    before do
+      access_token.should_receive(:get).with('/v1/user/profile', kind_of(Hash)).and_return(response)
+    end
+
+    it "returns the user's id" do
+      expect(subject.uid).to eq('foobar')
+    end
+  end
+
+  describe '#info' do
+    let(:parsed_response) do
+      {'profile' => {'id' => 'foobar', 'name' => 'Elaine Benes' } }
+    end
+
+    before do
+      access_token.should_receive(:get).with('/v1/user/profile', kind_of(Hash)).and_return(response)
+    end
+
+    it "returns the user's a hash" do
+      expect(subject.info).to be_a Hash
+      expect(subject.info['name']).to eq('Elaine Benes')
+    end
+  end
+
+  describe '#extra' do
+    let(:parsed_response) do
+      {'profile' => {'id' => 'foobar', 'name' => 'Elaine Benes' } }
+    end
+
+    before do
+      access_token.should_receive(:get).with('/v1/user/profile', kind_of(Hash)).and_return(response)
+    end
+
+    it "returns the entire user profile" do
+      expect(subject.extra).to be_a Hash
+      expect(subject.extra.has_key?(:raw_info)).to be_true
+    end
+  end
 end
