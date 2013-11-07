@@ -7,10 +7,16 @@ unless ENV['CI']
   end
 end
 
+require 'coveralls'
+Coveralls.wear!
+
+require 'omniauth-tradier'
+
 require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
-require 'omniauth-tradier'
+
+WebMock.disable_net_connect!(:allow => 'coveralls.io')
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
